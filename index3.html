@@ -12,7 +12,7 @@
         myapp.controller("myControler", function ($scope, $http) {
             API_URL = "https://fawadlab.herokuapp.com/person/"
             $scope.personList = null;
-            $scope.getRecords = function () {
+            $scope.getRecords = function () { 
                 $http.get(API_URL)
                     .then(function (result) {
                         $scope.personList = result.data;
@@ -22,7 +22,7 @@
             $scope.addPerson = function () {
                 var myObj = { "Name": $scope.name, "Age": $scope.Age, "Height": $scope.Height, "CNIC": $scope.CNIC};
                 console.log(myObj);
-                $hhtp.post(API_URL, myObj).then(function (result) {
+                $http.post(API_URL, myObj).then(function (result) {
                     alert("Success")
                 })
 
@@ -63,7 +63,7 @@
                 <td>{{person.ID}}</td>
                 <td>{{person.Name}}</td>
                 <td>{{person.Age}}</td>
-                <td>{{person.Cnic}}</td>
+                <td>{{person.CNIC}}</td>
             </tr>
 
         </table>
